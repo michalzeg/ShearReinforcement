@@ -1,0 +1,14 @@
+<div class="input-group">
+  <input type="number" [ngModel]="value" #inputVariable="ngModel" (input)="onValueChange($event)" appForbiddenNumber
+    class="form-control" />
+  <span class="input-group-btn">
+    <button class="btn" [ngClass]="{'btn-danger':!inputVariable.valid, 'btn-default':inputVariable.valid}" #pop="bs-popover"
+      [popover]="popoverContent" popoverTitle="Reinforcement" placement="right" container="body">
+      <span class="glyphicon glyphicon-cog"></span>
+    </button>
+  </span>
+</div>
+
+<ng-template #popoverContent>
+  <app-popover-body [hideCallback]="pop.hide.bind(pop)" (valueUpdated)="onValueUpdated($event)"></app-popover-body>
+</ng-template>

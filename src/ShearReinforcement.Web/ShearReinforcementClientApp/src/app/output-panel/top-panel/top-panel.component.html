@@ -1,0 +1,29 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Members not requiring design shear reinforcement</h3>
+    </div>
+    <div class="panel-body">
+
+      <app-equation-row [equation]="panelOutput?.crdc"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.fcd"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.k"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.ro1"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.vmin"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.sigmacp"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.vrdc11"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.vrdc12"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.vrdc2"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.ved"></app-equation-row>
+
+      <div *ngIf="!requiresShearReinforcement" class="form-horizontal">
+        <app-equation-row [equation]="panelOutput?.vrdcSummary"></app-equation-row>
+        <h3><span class="label label-success">Section does not require shear reinforcement</span></h3>
+      </div>
+      <div *ngIf="requiresShearReinforcement" class="form-horizontal">
+        <app-equation-row [equation]="panelOutput?.vrdcSummary"></app-equation-row>
+        <h3><span class="label label-warning">Section requires shear reinforcement</span></h3>
+      </div>
+    </div>
+  </div>
+</div>

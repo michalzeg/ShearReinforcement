@@ -1,0 +1,15 @@
+<div class="form-group">
+  <div class="col-xs-2 extra-top-padding">
+    <ng-katex class="col-xs-2" [equation]="title"></ng-katex>
+  </div>
+  <div class="col-xs-1 extra-top-padding">
+    <ng-katex [equation]="'='"></ng-katex>
+  </div>
+  <div class="col-xs-5">
+    <app-input-popover [(value)]="value" (valueChange)="onChange($event)"></app-input-popover>
+  </div>
+  <div class="col-xs-1 extra-top-padding">
+    <ng-katex [equation]="unit">
+    </ng-katex>
+  </div>
+</div>

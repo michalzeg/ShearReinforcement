@@ -1,0 +1,20 @@
+<form #popoverForm="ngForm">
+  <div class="form-group">
+    <label class="control-label">Number of bars</label>
+    <input required min="1" appForbiddenNumber type="number" class="form-control" [(ngModel)]="bar.barsCount" name="barsCount" />
+  </div>
+  <div class="form-group">
+    <label class="control-label">Diameter [mm]</label>
+    <input required min="1" appForbiddenNumber type="number" class="form-control" [(ngModel)]="bar.diameter" name="diameter" />
+  </div>
+  <div class="form-group">
+    <label>Area:
+      <span class="area" *ngIf="bar.isValid()">{{bar.area | numberFormater}}</span>
+      <span></span>[mm
+      <sup>2</sup>]</label>
+  </div>
+</form>
+<div class="btn-group">
+  <button class="btn btn-primary" (click)="apply()" [disabled]="!popoverForm.form.valid">Apply</button>
+  <button class="btn btn-default" (click)="hide()">Cancel</button>
+</div>

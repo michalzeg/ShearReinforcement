@@ -1,0 +1,35 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Input Data</h3>
+    </div>
+    <div class="panel-body" id="inputPanel">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <app-normal-row [title]="'V_{Ed}'" [unit]="'N'" [(value)]="input.ved" (valueChange)="onChange()">
+          </app-normal-row>
+          <app-normal-row [title]="'s'" [unit]="'mm'" [(value)]="input.s" (valueChange)="onChange()"></app-normal-row>
+          <app-popover-row [title]="'A_{sw}'" [unit]="'mm^2'" [(value)]="input.asw" (valueChange)="onChange()">
+          </app-popover-row>
+          <app-normal-row [title]="'b_w'" [unit]="'mm'" [(value)]="input.bw" (valueChange)="onChange()">
+          </app-normal-row>
+          <app-normal-row [title]="'d'" [unit]="'mm'" [(value)]="input.d" (valueChange)="onChange()"></app-normal-row>
+          <app-normal-row [title]="'h'" [unit]="'mm'" [(value)]="input.h" (valueChange)="onChange()"></app-normal-row>
+          <app-normal-row [title]="'f_{ywk}'" [unit]="'N/mm^2'" [(value)]="input.fywk" (valueChange)="onChange()">
+          </app-normal-row>
+          <app-normal-row [title]="'\\gamma_S'" [unit]="''" [(value)]="input.gammaS" (valueChange)="onChange()">
+          </app-normal-row>
+          <app-normal-row [title]="'f_{ck}'" [unit]="'N/mm^2'" [(value)]="input.fck" (valueChange)="onChange()">
+          </app-normal-row>
+          <app-normal-row [title]="'\\gamma_C'" [unit]="''" [(value)]="input.gammaC" (valueChange)="onChange()">
+          </app-normal-row>
+          <app-popover-row [title]="'A_{sl}'" [unit]="'mm^2'" [(value)]="input.asl" (valueChange)="onChange()">
+          </app-popover-row>
+          <app-normal-row [title]="'N_{Ed}'" [unit]="'N'" [(value)]="input.ned" (valueChange)="onChange()">
+          </app-normal-row>
+          <app-normal-row [title]="'k_1'" [unit]="''" [(value)]="input.k1" (valueChange)="onChange()"></app-normal-row>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

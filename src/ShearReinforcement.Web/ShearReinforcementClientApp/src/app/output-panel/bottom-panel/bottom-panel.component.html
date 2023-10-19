@@ -1,0 +1,33 @@
+<div class="panel-group" data-bind="visible: Ved() > Vrdc()">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Members requiring design shear reinforcement</h3>
+    </div>
+    <div class="panel-body">
+
+      <app-equation-row [equation]="panelOutput?.fywd"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.z"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.v1"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.alfaCw"></app-equation-row>
+      <app-equation-row [equation]="panelOutput?.theta"></app-equation-row>
+      <ng-container *ngIf="!noSolution">
+        <app-equation-row [equation]="panelOutput?.cotTheta"></app-equation-row>
+        <app-equation-row [equation]="panelOutput?.cotThetaCalcs"></app-equation-row>
+        <app-equation-row [equation]="panelOutput?.Vrdmax"></app-equation-row>
+        <app-equation-row [equation]="panelOutput?.Vrds"></app-equation-row>
+      </ng-container>
+
+      <div class="form-horizontal" *ngIf="noSolution">
+        <h3><span class="label label-danger">No solution. Concrete strut fails. Change section or concrete.</span></h3>
+      </div>
+      <div class="form-horizontal" *ngIf="shearReinforcementOK">
+        <app-equation-row [equation]="panelOutput?.VrdsSummary"></app-equation-row>
+        <h3><span class="label label-success">Provided shear reinforcement is OK!</span></h3>
+      </div>
+      <div class="form-horizontal" *ngIf="shearReinforcementLow">
+        <app-equation-row [equation]="panelOutput?.VrdsSummary"></app-equation-row>
+        <h3><span class="label label-warning">Provided shear reinforcement is not sufficient.</span></h3>
+      </div>
+    </div>
+  </div>
+</div>
